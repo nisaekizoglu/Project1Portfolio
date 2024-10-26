@@ -1,0 +1,72 @@
+﻿@model List<Project1Portfolio.Models.Message>
+
+@{
+    ViewBag.Title = "Inbox";
+    Layout = "~/Views/Admin/Index.cshtml";
+    string color = "";
+}
+
+<h2 class="mb-4 ">Gelen Mesajlar </h2>
+
+<table class="table table-bordered ">
+    <tr>
+        <th>#</th>
+        <th>Gönderen</th>
+        <th>Konu</th>
+        <th>Tarih</th>
+        <th>Durum</th>
+        <th>Kategori</th>
+        <th>Sil</th>
+        <th>Mesajı aç</th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        switch (item.Category.CategoryName)
+        {
+            case "Teşekkür":
+                color = "lightblue";
+                break;
+
+            case "Proje Talebi":
+                color = "lavender";
+                break;
+
+            case "Şikayet":
+                color = "peachpuff";
+                break;
+
+            case "Öneri":
+                color = "lightgreen";
+                break;
+
+            case "Kutlama":
+                color = "lightyellow";
+                break;
+
+            default:
+                color = "lightgray";
+                break;
+        }
+            <tr>
+                <td>@item.MessageId</td>
+                <td>@item.Name</td>
+                <td>@item.Subject</td>
+                <td>@item.SendDate</td>
+
+
+                @if (item.IsRead == false)
+                {
+                    <td><a href="/Message/MessageStatusChangeToTrue/@item.MessageId" class="btn btn-info">Okundu olarak işaretle</a></td>
+
+                }
+                else
+                {
+                    <td><a href="/Message/MessageStatusChangeToFalse/@item.MessageId" class="btn btn-warning">Okunmadı olarak işaretle</a></td>
+                }
+                <td style="background-color: @color;">@item.Category.CategoryName</td>
+                <td><a href="#" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Message/MessageDetails/@item.MessageId" class="btn btn-secondary">Mesajı Aç</a></td>
+            </tr>
+    }
+</table>

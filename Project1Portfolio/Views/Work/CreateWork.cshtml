@@ -1,0 +1,20 @@
+﻿@model Project1Portfolio.Models.Work
+@{
+    @{
+        ViewBag.Title = "CreateWork";
+        Layout = "~/Views/Admin/Index.cshtml";
+    }
+
+    <h2 class=" mb-4">Yeni Çalışma Girişi</h2>
+
+    <form method="post">
+        <label>Çalışma İsmi</label>
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        <label>Açıklama</label>
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Çalışmayı Ekle</button>
+    </form>
+
+

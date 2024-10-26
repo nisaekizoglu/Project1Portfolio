@@ -1,0 +1,17 @@
+﻿@model Project1Portfolio.Models.SocialMedia
+@{
+    ViewBag.Title = "CreateSocialMedia";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class=" mb-4">Yeni Sosyal Medya Hesabı</h2>
+
+<form method="post">
+    <label>Sosyal Medya Adı</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Durum</label>
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Sosyal Medyayı Ekle</button>
+</form>

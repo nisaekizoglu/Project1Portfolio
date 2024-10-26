@@ -1,0 +1,18 @@
+﻿@model Project1Portfolio.Models.SocialMedia
+@{
+    ViewBag.Title = "UpdateSocialMedia";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class=" mb-4">Sosyal Medya Hesabı Güncelleme Sayfası</h2>
+<form method="post">
+
+    @Html.HiddenFor(x => x.SocialMediaId, new { @class = "form-control" })
+    <label>Şirket Adı</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>İş Tarihi</label>
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">Sosyal Medya Hesabını Güncelle</button>
+</form>

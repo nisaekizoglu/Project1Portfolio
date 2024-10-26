@@ -1,0 +1,30 @@
+﻿@model Project1Portfolio.Models.Profile
+@{
+    ViewBag.Title = "CreateProfile";
+    Layout = "~/Views/Admin/Index.cshtml";
+}
+
+<h2 class=" mb-4">Yeni Profil Bilgisi Girişi</h2>
+
+<form method="post">
+    <label>Başlık</label>
+    @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+    <br />
+    <label>Açıklama</label>
+    @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+    <br />
+    <label>Adres</label>
+    @Html.TextBoxFor(x => x.Adress, new { @class = "form-control" })
+    <br />
+    <label>Email</label>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    <br />
+    <label>Telefon Numarası</label>
+    @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
+    <br />
+    <label>GitHub Link</label>
+    @Html.TextBoxFor(x => x.GithubLink, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Profil Bilgisini Ekle</button>
+</form>
+
